@@ -15,7 +15,7 @@
         app:muted="false"
         app:showFullscreenOption="true"
         app:showMenuOption="false"
-        app:showOriginalControls="false"
+        app:hidePlayerViewControls="false"
         app:showTitle="true"
         />
 </FrameLayout>

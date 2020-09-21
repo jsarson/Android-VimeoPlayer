@@ -7,7 +7,7 @@
         <attr name="muted" format="boolean"/>
         <attr name="topicColor" format="color"/>
         <attr name="backgroundColor" format="color"/>
-        <attr name="showOriginalControls" format="boolean"/>
+        <attr name="hidePlayerViewControls" format="boolean"/>
         <attr name="showTitle" format="boolean"/>
         <attr name="showMenuOption" format="boolean"/>
         <attr name="showFullscreenOption" format="boolean"/>

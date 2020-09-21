@@ -65,7 +65,7 @@ public class VimeoPlayerView extends FrameLayout implements LifecycleObserver {
                 title = t;
                 textTracks = textTrackArray;
                 progressBar.setVisibility(View.GONE);
-                if (!defaultOptions.originalControls) {
+                if (!defaultOptions.hidePlayerViewControls) {
                     if (defaultOptions.autoPlay) {
                         vimeoPlayer.playTwoStage();
                         defaultControlPanelView.dismissControls(4000);
@@ -86,7 +86,7 @@ public class VimeoPlayerView extends FrameLayout implements LifecycleObserver {
         this.addView(vimeoPlayer, vimeoPlayerLp);
 
 
-        if (!defaultOptions.originalControls) {
+        if (!defaultOptions.hidePlayerViewControls) {
             defaultControlPanelView = new DefaultControlPanelView(this);
         }
 
@@ -340,7 +340,7 @@ public class VimeoPlayerView extends FrameLayout implements LifecycleObserver {
             boolean autoPlay = attributes.getBoolean(R.styleable.VimeoPlayerView_autoPlay, false);
             boolean loop = attributes.getBoolean(R.styleable.VimeoPlayerView_loop, false);
             boolean muted = attributes.getBoolean(R.styleable.VimeoPlayerView_muted, false);
-            boolean originalControls = attributes.getBoolean(R.styleable.VimeoPlayerView_showOriginalControls, false);
+            boolean hidePlayerViewControls = attributes.getBoolean(R.styleable.VimeoPlayerView_hidePlayerViewControls, false);
             boolean title = attributes.getBoolean(R.styleable.VimeoPlayerView_showTitle, true);
             String quality = attributes.getString(R.styleable.VimeoPlayerView_quality);
             if (quality == null) quality = "Auto";
@@ -386,7 +386,7 @@ public class VimeoPlayerView extends FrameLayout implements LifecycleObserver {
             options.autoPlay = autoPlay;
             options.loop = loop;
             options.muted = muted;
-            options.originalControls = originalControls;
+            options.hidePlayerViewControls = hidePlayerViewControls;
             options.title = title;
             options.quality = quality;
             options.color = color;
