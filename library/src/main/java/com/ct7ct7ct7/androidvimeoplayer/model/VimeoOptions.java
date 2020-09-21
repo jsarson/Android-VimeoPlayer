@@ -14,4 +14,5 @@ public class VimeoOptions {
     public boolean menuOption = true;
     public boolean fullscreenOption = true;
     public float aspectRatio = 16f/9;
+    public boolean hideControlBar;
 }

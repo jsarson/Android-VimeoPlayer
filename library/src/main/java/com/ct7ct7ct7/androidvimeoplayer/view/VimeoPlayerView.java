@@ -231,7 +231,6 @@ public class VimeoPlayerView extends FrameLayout implements LifecycleObserver {
         vimeoPlayer.recycle();
     }
 
-
     public void setFullscreenClickListener(final OnClickListener onClickListener) {
         if (defaultControlPanelView != null) {
             defaultControlPanelView.setFullscreenClickListener(onClickListener);
@@ -282,6 +281,10 @@ public class VimeoPlayerView extends FrameLayout implements LifecycleObserver {
         if (defaultControlPanelView != null) {
             defaultControlPanelView.dismissMenuItem();
         }
+    }
+
+    public void hideOriginControls(boolean hide) {
+        defaultOptions.hideControlBar = hide;
     }
 
     protected boolean getSettingsVisibility() {
@@ -346,6 +349,7 @@ public class VimeoPlayerView extends FrameLayout implements LifecycleObserver {
             boolean menuOption = attributes.getBoolean(R.styleable.VimeoPlayerView_showMenuOption, false);
             boolean fullscreenOption = attributes.getBoolean(R.styleable.VimeoPlayerView_showFullscreenOption, false);
             float aspectRatio = attributes.getFloat(R.styleable.VimeoPlayerView_aspectRatio, defaultAspectRatio);
+            boolean hideOriginControls = attributes.getBoolean(R.styleable.VimeoPlayerView_hideOriginControls, false);
 
             switch (quality) {
                 case "4K":
@@ -390,9 +394,9 @@ public class VimeoPlayerView extends FrameLayout implements LifecycleObserver {
             options.menuOption = menuOption;
             options.fullscreenOption = fullscreenOption;
             options.aspectRatio = aspectRatio;
+            options.hideControlBar = hideOriginControls;
             attributes.recycle();
         }
-
         return options;
     }
 

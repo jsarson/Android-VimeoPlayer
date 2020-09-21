@@ -13,5 +13,6 @@
         <attr name="showFullscreenOption" format="boolean"/>
         <attr name="aspectRatio" format="float"/>
         <attr name="quality" format="string"/>
+        <attr name="hideOriginControls" format="boolean"/>
     </declare-styleable>
 </resources>

@@ -210,24 +210,17 @@ public class VimeoPlayer extends WebView {
             videoUrl += "/" + hashKey;
         }
 
-        boolean autoPlay = false;
-        if (!vimeoOptions.originalControls) {
-            autoPlay = false;
-        } else {
-            autoPlay = vimeoOptions.autoPlay;
-        }
-
         final String formattedString = unformattedString
                 .replace("<VIDEO_URL>", videoUrl)
-                .replace("<AUTOPLAY>", String.valueOf(autoPlay))
+                .replace("<AUTOPLAY>", String.valueOf(vimeoOptions.autoPlay))
                 .replace("<LOOP>", String.valueOf(vimeoOptions.loop))
                 .replace("<MUTED>", String.valueOf(vimeoOptions.muted))
                 .replace("<PLAYSINLINE>", String.valueOf(vimeoOptions.originalControls))
                 .replace("<TITLE>", String.valueOf(vimeoOptions.title))
                 .replace("<COLOR>", Utils.colorToHex(vimeoOptions.color))
                 .replace("<BACKGROUND_COLOR>", Utils.colorToHex(vimeoOptions.backgroundColor))
-                .replace("<QUALITY>", vimeoOptions.quality);
-
+                .replace("<QUALITY>", vimeoOptions.quality)
+                .replace("<BACKGROUND>", String.valueOf(vimeoOptions.hideControlBar));
 
         this.loadDataWithBaseURL(baseUrl, formattedString, "text/html", "utf-8", null);
 
