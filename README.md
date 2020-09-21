@@ -11,8 +11,17 @@ Unofficial Vimeo video player library for Android.
 ### **Gradle**
 
 ```
+Step 1. Add the JitPack repository to your build file:
+allprojects {
+    repositories {
+    	...
+    	maven { url 'https://jitpack.io' }
+    }
+}
+
+Step 2. Add the dependency
 dependencies {
-    implementation 'com.ct7ct7ct7.androidvimeoplayer:library:{latest version}'
+    implementation 'com.github.RX1226:Android-VimeoPlayer:1.2.5'
 }
 ```
 
