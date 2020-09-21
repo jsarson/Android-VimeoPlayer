@@ -220,7 +220,7 @@ public class VimeoPlayer extends WebView {
                 .replace("<COLOR>", Utils.colorToHex(vimeoOptions.color))
                 .replace("<BACKGROUND_COLOR>", Utils.colorToHex(vimeoOptions.backgroundColor))
                 .replace("<QUALITY>", vimeoOptions.quality)
-                .replace("<BACKGROUND>", String.valueOf(vimeoOptions.hideControlBar));
+                .replace("<CONTROLS>", String.valueOf(!vimeoOptions.hideOriginControls));
 
         this.loadDataWithBaseURL(baseUrl, formattedString, "text/html", "utf-8", null);
 

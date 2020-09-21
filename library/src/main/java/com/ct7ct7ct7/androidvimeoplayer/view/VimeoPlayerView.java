@@ -284,7 +284,7 @@ public class VimeoPlayerView extends FrameLayout implements LifecycleObserver {
     }
 
     public void hideOriginControls(boolean hide) {
-        defaultOptions.hideControlBar = hide;
+        defaultOptions.hideOriginControls = hide;
     }
 
     protected boolean getSettingsVisibility() {
@@ -394,7 +394,7 @@ public class VimeoPlayerView extends FrameLayout implements LifecycleObserver {
             options.menuOption = menuOption;
             options.fullscreenOption = fullscreenOption;
             options.aspectRatio = aspectRatio;
-            options.hideControlBar = hideOriginControls;
+            options.hideOriginControls = hideOriginControls;
             attributes.recycle();
         }
         return options;
