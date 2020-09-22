@@ -22,6 +22,7 @@ import com.ct7ct7ct7.androidvimeoplayer.model.VimeoOptions;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 
 public class VimeoPlayer extends WebView {
     private int videoId;
@@ -97,6 +98,7 @@ public class VimeoPlayer extends WebView {
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         ViewGroup.LayoutParams parentLp = ((ViewGroup) getParent()).getLayoutParams();
         if (parentLp.width == ViewGroup.LayoutParams.MATCH_PARENT && parentLp.height == ViewGroup.LayoutParams.MATCH_PARENT) {
+            if(vimeoOptions == null) vimeoOptions = new VimeoOptions();
             if (widthMeasureSpec < heightMeasureSpec) {
                 int heightByRatio = MeasureSpec.makeMeasureSpec((int) (MeasureSpec.getSize(widthMeasureSpec) * vimeoOptions.aspectRatio), MeasureSpec.EXACTLY);
                 super.onMeasure(widthMeasureSpec, heightByRatio);
@@ -256,7 +258,7 @@ public class VimeoPlayer extends WebView {
         try {
             InputStream inputStream = getResources().openRawResource(R.raw.vimeo_player);
 
-            InputStreamReader inputStreamReader = new InputStreamReader(inputStream, "utf-8");
+            InputStreamReader inputStreamReader = new InputStreamReader(inputStream, StandardCharsets.UTF_8);
             BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
 
             String read;
