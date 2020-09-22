@@ -21,7 +21,7 @@ allprojects {
 
 Step 2. Add the dependency
 dependencies {
-    implementation 'com.github.RX1226:Android-VimeoPlayer:1.2.5'
+    implementation 'com.github.RX1226:Android-VimeoPlayer:1.2.6'
 }
 ```
 
