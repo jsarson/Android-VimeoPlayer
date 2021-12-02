@@ -44,7 +44,7 @@ class FullscreenActivity : AppCompatActivity() {
             val playAt = data!!.getFloatExtra(VimeoPlayerActivity.RESULT_STATE_VIDEO_PLAY_AT, 0f)
             vimeoPlayer.seekTo(playAt)
 
-            when (PlayerState.valueOf(data.getStringExtra(VimeoPlayerActivity.RESULT_STATE_PLAYER_STATE))) {
+            when (PlayerState.valueOf(data.getStringExtra(VimeoPlayerActivity.RESULT_STATE_PLAYER_STATE).toString())) {
                 PlayerState.PLAYING -> vimeoPlayer.play()
                 PlayerState.PAUSED -> vimeoPlayer.pause()
                 else -> {
