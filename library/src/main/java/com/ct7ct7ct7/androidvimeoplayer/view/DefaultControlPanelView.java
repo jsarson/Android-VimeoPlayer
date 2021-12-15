@@ -281,15 +281,20 @@ public class DefaultControlPanelView {
             @Override
             protected void onPostExecute(VimeoThumbnail vimeoThumbnail) {
                 super.onPostExecute(vimeoThumbnail);
-                if (vimeoThumbnail != null && vimeoThumbnail.thumbnailUrl != null) {
-                    RequestOptions options = new RequestOptions()
-                            .priority(Priority.NORMAL)
-                            .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC);
 
-                    Glide.with(context)
-                            .load(vimeoThumbnail.thumbnailUrl)
-                            .apply(options)
-                            .into(vimeoThumbnailImageView);
+                try {
+                    if (vimeoThumbnail != null && vimeoThumbnail.thumbnailUrl != null) {
+                        RequestOptions options = new RequestOptions()
+                                .priority(Priority.NORMAL)
+                                .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC);
+
+                        Glide.with(context)
+                                .load(vimeoThumbnail.thumbnailUrl)
+                                .apply(options)
+                                .into(vimeoThumbnailImageView);
+                    }
+                } catch (Exception e) {
+                    // do nothing, probably "You cannot start a load for a destroyed activity" exception
                 }
             }
         }.execute();
